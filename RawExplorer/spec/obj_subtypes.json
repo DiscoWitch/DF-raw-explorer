@@ -1,0 +1,36 @@
+{
+    "BUILDING": [
+        "BUILDING_WORKSHOP",
+        "BUILDING_FURNACE"
+    ],
+    "DESCRIPTOR_COLOR": [
+        "COLOR"
+    ],
+    "DESCRIPTOR_PATTERN": [
+        "COLOR_PATTERN"
+    ],
+    "DESCRIPTOR_SHAPE": [
+        "SHAPE"
+    ],
+    "ITEM": [
+        "ITEM_AMMO",
+        "ITEM_ARMOR",
+        "ITEM_FOOD",
+        "ITEM_GLOVES",
+        "ITEM_HELM",
+        "ITEM_INSTRUMENT",
+        "ITEM_PANTS",
+        "ITEM_SHIELD",
+        "ITEM_SHOES",
+        "ITEM_SIEGEAMMO",
+        "ITEM_TOOL",
+        "ITEM_TOY",
+        "ITEM_TRAPCOMP",
+        "ITEM_WEAPON"
+    ],
+    "LANGUAGE": [
+        "TRANSLATION",
+        "SYMBOL",
+        "WORD"
+    ]
+}

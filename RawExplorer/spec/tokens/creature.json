@@ -1,0 +1,52 @@
+{
+    "DESCRIPTION": {
+        "editor": "string"
+    },
+    "NAME": [
+        {
+            "name": "singular",
+            "editor": "string"
+        },
+        {
+            "name": "plural",
+            "editor": "string"
+        },
+        {
+            "name": "adjective",
+            "editor": "string"
+        }
+    ],
+    "CASTE_NAME": [
+        {
+            "name": "singular",
+            "editor": "string"
+        },
+        {
+            "name": "plural",
+            "editor": "string"
+        },
+        {
+            "name": "adjective",
+            "editor": "string"
+        }
+    ],
+    "PETVALUE": {
+        "editor": "integer"
+    },
+    "FREQUENCY": {
+        "editor": "integer"
+    },
+    "POPULATION_NUMBER": [
+        {
+            "name": "min",
+            "editor": "integer"
+        },
+        {
+            "name": "max",
+            "editor": "integer"
+        }
+    ],
+    "BIOME": {
+        "editor": "biome.Biome"
+    }
+}
