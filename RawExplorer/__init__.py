@@ -9,11 +9,11 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.tabbedpanel import TabbedPanel, TabbedPanelItem
 
-from .scripts import import_scripts
-from .tabs.CreatureView import CreatureView
+from RawExplorer.scripts import import_scripts
+from RawExplorer.tabs.CreatureView import CreatureView
 # from .tabs.ItemView import ItemView
-from .widgets.DropDown import DropDown
-from .raws import RawCollection
+from RawExplorer.widgets.DropDown import DropDown
+from RawExplorer.raws import RawCollection
 
 
 class RawExplorer(App):

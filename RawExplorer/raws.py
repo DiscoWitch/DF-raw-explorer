@@ -40,7 +40,14 @@ class RawCollection(EventDispatcher):
                 self.files[name] = rd
 
     def save_raws(self):
-        pass
+        path = self.path + "-test"
+        os.makedirs(path, exist_ok=True)
+        os.makedirs(path+"/objects", exist_ok=True)
+        for kf in self.files:
+            f = self.files[kf]
+            fpath = "{}/objects/{}".format(path, kf)
+            with open(fpath, "w") as fh:
+                f.write_raw(fh)
 
     def filter(self, pred_file=None, pred_obj=None):
         output = RawCollection(path=self.path, spec=self.spec, read_now=False)
@@ -103,6 +110,25 @@ class RawFile(EventDispatcher):
                         maintype=self.maintype, subtype=tokens[0])
                     continue
                 self.objects[cur_item].tokens.append(tokens)
+
+    def write_raw(self, handle):
+        handle.write(os.path.basename(self.path).split('.')[0]+'\n\n')
+        handle.write("[OBJECT:{}]\n\n".format(self.maintype))
+        for kobj in self.objects:
+            tab_cdi = False
+
+            obj = self.objects[kobj]
+            handle.write("[{}:{}]\n".format(obj.subtype, kobj))
+            caste = "ALL"
+            for token in obj.tokens:
+                if token[0] == "CDI" or re.match("ATTACK_.+", token[0]):
+                    handle.write('\t')
+                if caste != "ALL" and token[0] != "CASTE" and token[0] != "SELECT_CASTE":
+                    handle.write('\t')
+                handle.write("\t[{}]\n".format(':'.join(token)))
+                if token[0] == "CASTE" or token[0] == "SELECT_CASTE":
+                    caste = token[1]
+            handle.write('\n')
 
 
 class RawObject(EventDispatcher):

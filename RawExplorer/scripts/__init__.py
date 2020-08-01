@@ -6,12 +6,14 @@ import os
 import kivy.properties as kpt
 from kivy.uix.button import Button
 
+scriptdir = os.path.dirname(__file__)
+
 
 def import_scripts(app):
-    files = os.listdir(__path__[0])
+    files = os.listdir(scriptdir)
     sclasses = []
     for f in files:
-        fpath = "{}/{}".format(__path__, f)
+        fpath = "{}/{}".format(scriptdir, f)
         if os.path.isfile(fpath) and not f.startswith("_") and f.endswith(".py"):
             name = f[:-3]
             modulepath = "{}.{}".format(__package__, name)
@@ -26,7 +28,7 @@ def import_scripts(app):
         if issubclass(c, ScriptButton):
             scripts.append(c(app=app))
         else:
-            print("{} is not a subclass of Button".format(c))
+            print("{} is not a subclass of ScriptButton".format(c))
 
     return scripts
 
